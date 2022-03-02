@@ -1,8 +1,8 @@
 //global variables
 let playerScore = 0 ;
 let dealerScore = 0;
-let bust = false; 
-let bustDealer = false;
+let bust;
+let bustDealer;
 let cardsArray = [1,2,3,4,5,6,7,8,9,10,11,12,13]
 
 //selectors
@@ -11,7 +11,7 @@ let buttonStop = document.querySelector(".stop");
 
 //event listeners
 buttonPlay.addEventListener("click",turn)
-buttonStop.addEventListener("click",stop)
+buttonStop.addEventListener("click",stopTurn)
 
 //Functions
 
@@ -36,6 +36,7 @@ function shuffle(array) {
 
 //player hitsplays until he decides not to 
 function playerTurn() {
+bust = false;
 cardsArrayShuffle = shuffle(cardsArray);
 let playerCard = cardsArrayShuffle[0];
 playerScore += playerCard;
@@ -56,6 +57,7 @@ if (bust == false || playerScore == 21) {
 }
 //computer plays until he reaches 15
 function dealerTurn(){
+bustDealer = false;
 let cardsArrayShuffle = shuffle(cardsArray);
 let dealerCard = cardsArrayShuffle[0];
 dealerScore += dealerCard;
@@ -74,12 +76,34 @@ function turn(e) {
     if(dealerScore < 15)
     {
         dealerTurn();
-    }
+   if(bust == true || bustDealer == true)
+  {
+    stopTurn();
+  }
+};
+
+//Display who won
+function stopTurn(){
+  console.log(`P : ${bust} D : ${bustDealer}`);
+  if(bust == true)
+  {
+    alert("dealer won");
+  }
+  if(bustDealer == true && bust == false)
+  {
+    alert("player won");
+  }
+  if(bust==false && bustDealer == false) {
+      if (playerScore > dealerScore) 
+      {
+          alert("player won")
+      } 
+      else 
+      {
+            alert("dealer won")
+      }
+  }
 
 }
 
-//display who wins
-function stop() {
-    if((playerScore> dealerScore) && (playerScore< 22)) 
 }
-
