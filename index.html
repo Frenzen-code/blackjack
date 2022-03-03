@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+
     <title>Black Jack</title>
 </head>
 <body>
@@ -12,23 +15,28 @@
     </header>
 
     <main>
-        <section class ="computer">
-            <div class ="computer-score"></div>
-            <div class ="computer-draw"></div>
-        </section>
-        <section class ="player">
-            <div class ="player-score"></div>
-            <div class ="player-draw"></div>
+        <section class ="buttons">
             <button class= "play">Hit me !</button>
             <button class= "stop">I'm done</button>
+    
+        </section>
+        <section class ="game">
+            <div class ="player-score"></div>
+            <div class ="player-draw"></div>
+            <button class = "ace-one">1</button>
+            <button class = "ace-eleven">11</button>
+            <div class ="computer-score"></div>
+            <div class ="computer-draw"></div>
+           
+           
         </section>
         <section class = result>
             <div class = "round-result"></div>
             <div class = "computer-total"></div>
-            <div class = "player-total"></div>
+            <div class = "player-total"></div>  
         </section>
             
     </main>
-    <script src="script.js"></script>    
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
